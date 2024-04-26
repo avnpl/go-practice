@@ -36,3 +36,16 @@ func randomFormat() string {
     // a random index for the slice of formats.
 	return formats[rand.Intn(len(formats))]
 }
+
+func Hellos(names []string) (map[string]string, error){
+	mssgs := make(map[string]string)
+
+	for _, name := range names {
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		mssgs[name] = message
+	}
+	return mssgs, nil
+}
